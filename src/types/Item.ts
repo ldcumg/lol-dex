@@ -3,6 +3,7 @@ export type Item = {
 	description: string;
 	colloq: string;
 	plaintext: string;
+	from: string[];
 	into: string[];
 	image: {
 		full: string;

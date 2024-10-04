@@ -1,17 +1,23 @@
-//동적 메타데이터
-
 import { version } from "@/app/layout";
 import { BASE_URL } from "@/constant/baseUrl";
 import { fetchChampionDetail } from "@/utils/serverApi";
 import Image from "next/image";
 
-type props = {
+type Props = {
 	params: {
 		id: string;
 	};
 };
 
-const DetailPage = async ({ params }: props) => {
+export function generateMetadata({ params }: Props) {
+	console.log("params", params);
+	return {
+		title: params.id,
+		description: params.id,
+	};
+}
+
+const DetailPage = async ({ params }: Props) => {
 	const { id } = params;
 	const champion = await fetchChampionDetail(id);
 	return (

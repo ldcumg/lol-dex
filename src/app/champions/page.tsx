@@ -3,6 +3,12 @@ import { fetchChampionList } from "@/utils/serverApi";
 import Image from "next/image";
 import { version } from "../layout";
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+	title: "롤 챔피언 목록",
+	description: "롤 챔피언 목록입니다.",
+};
 
 const ChampionsPage = async () => {
 	const allChamps = await fetchChampionList();
