@@ -1,7 +1,15 @@
 import { version } from "@/app/layout";
+import Button from "@/components/Button";
 import { BASE_URL } from "@/constant/baseUrl";
 import { fetchChampionDetail } from "@/utils/serverApi";
 import Image from "next/image";
+
+export function generateMetadata({ params }: Props) {
+	return {
+		title: params.id,
+		description: params.id,
+	};
+}
 
 type Props = {
 	params: {
@@ -9,17 +17,10 @@ type Props = {
 	};
 };
 
-export function generateMetadata({ params }: Props) {
-	console.log("params", params);
-	return {
-		title: params.id,
-		description: params.id,
-	};
-}
-
 const DetailPage = async ({ params }: Props) => {
 	const { id } = params;
 	const champion = await fetchChampionDetail(id);
+
 	return (
 		<div>
 			<h1>{champion.name}</h1>
@@ -30,6 +31,7 @@ const DetailPage = async ({ params }: Props) => {
 				width={300}
 				height={300}
 			/>
+			<Button />
 		</div>
 	);
 };
