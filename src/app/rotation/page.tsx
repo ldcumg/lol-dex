@@ -1,11 +1,8 @@
 "use client";
 
-import { BASE_URL } from "@/constant/baseUrl";
 import { Champion } from "@/types/Champion";
-import Image from "next/image";
 import { useEffect, useState } from "react";
-import { version } from "../layout";
-import Link from "next/link";
+import ChampCard from "@/components/ChampCard";
 
 const RotationPage = () => {
 	const [rotation, setRotation] = useState<Champion[]>([]);
@@ -19,21 +16,12 @@ const RotationPage = () => {
 	}, []);
 
 	return (
-		<div>
-			{rotation.map((champ) => {
-				return (
-					<Link href={`/champions/${champ.id}`} key={champ.key}>
-						<Image
-							src={`${BASE_URL}/cdn/${version}/img/champion/${champ.image.full}`}
-							alt={`${champ.name} 이미지`}
-							width={80}
-							height={80}
-						/>
-						<h4>{champ.name}</h4>
-					</Link>
-				);
-			})}
-		</div>
+		<>
+			<h1>금주의 무료 챔피언</h1>
+			{rotation.map((champ) => (
+				<ChampCard champ={champ} />
+			))}
+		</>
 	);
 };
 

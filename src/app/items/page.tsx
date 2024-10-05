@@ -11,6 +11,7 @@ export const metadata: Metadata = {
 
 const ItemPage = async () => {
 	const items = await fetchItemList();
+
 	return (
 		<>
 			{items.map((item) => {

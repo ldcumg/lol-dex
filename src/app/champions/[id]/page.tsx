@@ -1,5 +1,5 @@
 import { version } from "@/app/layout";
-import Button from "@/components/Button";
+import BackButton from "@/components/BackButton";
 import { BASE_URL } from "@/constant/baseUrl";
 import { fetchChampionDetail } from "@/utils/serverApi";
 import Image from "next/image";
@@ -31,7 +31,7 @@ const DetailPage = async ({ params }: Props) => {
 				width={300}
 				height={300}
 			/>
-			<Button />
+			<BackButton />
 		</div>
 	);
 };
