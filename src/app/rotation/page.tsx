@@ -17,10 +17,12 @@ const RotationPage = () => {
 
 	return (
 		<>
-			<h1>금주의 무료 챔피언</h1>
-			{rotation.map((champ) => (
-				<ChampCard champ={champ} />
-			))}
+			<h2>챔피언 로테이션</h2>
+			<div className="custom-grid">
+				{rotation.map((champ) => (
+					<ChampCard champ={champ} key={champ.key} />
+				))}
+			</div>
 		</>
 	);
 };

@@ -2,28 +2,55 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #ffffff;
+    --foreground: #171717;
+    --red: #f55
+  }
+
+  @font-face {
+    font-family: "HotsFont";
+    font-weight: 200;
+    src: url("../public/fonts/hotsFont.ttf") format("truetype");
+  }
+
+  body {
+    color: var(--foreground);
+    background: var(--background);
+    font-family: HotsFont;
+    padding: 2vh 3vw;
+    font-size: 1.5vh;
+    word-break: keep-all;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background: #0a0a0a;
+      --foreground: #ededed;
+    }
+  }
+
+  h2 {
+    color: var(--red);
+    font-size: 3vh;
+    padding: 2vh;
+  }
+
+  h4 {
+    color: var(--red);
+    font-size: 2vh;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: HotsFont;
-}
+@layer components {
+  .custom-grid {
+    @apply grid grid-cols-2 lg:grid-cols-4 2xl:grid-cols-6 justify-items-center gap-[2vw];
+  }
 
-@font-face {
-  font-family: "HotsFont";
-  font-weight: 200;
-  src: url("../public/fonts/hotsFont.ttf") format("truetype");
+  .card{
+    @apply flex flex-col items-center gap-[1vh] border w-[30vw] h-full lg:w-[20vw] 2xl:w-full py-[1vh]
+  }
 }
 
 @layer utilities {

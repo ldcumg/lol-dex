@@ -11,9 +11,12 @@ const ChampionsPage = async () => {
 	const allChamps = await fetchChampionList();
 	return (
 		<>
-			{allChamps.map((champ) => {
-				return <ChampCard champ={champ} />;
-			})}
+			<h2>챔피언 목록</h2>
+			<div className="custom-grid">
+				{allChamps.map((champ) => {
+					return <ChampCard champ={champ} key={champ.key} />;
+				})}
+			</div>
 		</>
 	);
 };
