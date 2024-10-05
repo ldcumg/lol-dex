@@ -19,10 +19,5 @@ export const GET = async () => {
 		freeChampionIds.includes(Number(champ.key))
 	);
 
-	return new NextResponse(JSON.stringify(freeChampions), {
-		status: 200,
-		headers: {
-			"Content-Type": "application/json",
-		},
-	});
+	return NextResponse.json(freeChampions);
 };

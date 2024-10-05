@@ -5,6 +5,7 @@ export type Champion = {
 	name: string;
 	title: string;
 	blurb: string;
+	lore: string;
 	info: {
 		attack: number;
 		defense: number;

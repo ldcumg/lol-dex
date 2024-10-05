@@ -25,12 +25,22 @@ const DetailPage = async ({ params }: Props) => {
 		<div>
 			<h1>{champion.name}</h1>
 			<h3>{champion.title}</h3>
-			<Image
+			<img
 				src={`${BASE_URL}/cdn/${version}/img/champion/${champion.image.full}`}
 				alt={`${champion.name} 이미지`}
 				width={300}
 				height={300}
 			/>
+			<p>{champion.lore}</p>
+			<span>
+				<h6>스탯</h6>
+				<ol>
+					<li>공격력 : {champion.info.attack}</li>
+					<li>주문력 : {champion.info.magic}</li>
+					<li>방어력 : {champion.info.defense}</li>
+					<li>난이도 : {champion.info.difficulty}</li>
+				</ol>
+			</span>
 			<BackButton />
 		</div>
 	);
