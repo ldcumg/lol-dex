@@ -2,7 +2,6 @@ import { version } from "@/app/layout";
 import BackButton from "@/components/BackButton";
 import { BASE_URL } from "@/constant/baseUrl";
 import { fetchChampionDetail } from "@/utils/serverApi";
-import Image from "next/image";
 
 export function generateMetadata({ params }: Props) {
 	return {
@@ -22,17 +21,18 @@ const DetailPage = async ({ params }: Props) => {
 	const champion = await fetchChampionDetail(id);
 
 	return (
-		<div>
+		<div className="px-[20vw] flex flex-col gap-[2vh]">
 			<h1>{champion.name}</h1>
-			<h3>{champion.title}</h3>
+			<h4>{champion.title}</h4>
 			<img
+				className="mx-auto"
 				src={`${BASE_URL}/cdn/${version}/img/champion/${champion.image.full}`}
 				alt={`${champion.name} 이미지`}
 				width={300}
 				height={300}
 			/>
-			<p>{champion.lore}</p>
-			<span>
+			<p className="text-[--red]">{champion.lore}</p>
+			<span className="text-[--red]">
 				<h6>스탯</h6>
 				<ol>
 					<li>공격력 : {champion.info.attack}</li>

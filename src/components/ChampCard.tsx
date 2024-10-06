@@ -17,8 +17,9 @@ const ChampCard = ({ champ }: Props) => {
 				alt={`${champ.name} 이미지`}
 				width={100}
 				height={100}
+				priority
 			/>
-			<h4>{champ.name}</h4>
+			<h4 className="text-[--red]">{champ.name}</h4>
 			<p className="px-[2vw]">{champ.title}</p>
 		</Link>
 	);

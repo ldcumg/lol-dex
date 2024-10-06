@@ -25,7 +25,7 @@ const ItemPage = async () => {
 								height={80}
 								width={80}
 							/>
-							<h4>{item.name}</h4>
+							<h4 className="text-[--red]">{item.name}</h4>
 							<p className="px-[2vw]">{item.plaintext}</p>
 						</div>
 					);
