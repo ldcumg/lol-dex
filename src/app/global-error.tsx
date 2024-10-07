@@ -3,18 +3,17 @@
 import { useRouter } from "next/navigation";
 import { startTransition } from "react";
 
-export default function Error({
-	error,
-	reset,
-}: {
+type Props = {
 	error: Error & { digest?: string };
 	reset: () => void;
-}) {
+};
+
+const Error = ({ error, reset }: Props) => {
 	const { refresh } = useRouter();
 
 	return (
 		<div>
-			<h2>Something went wrong!</h2>
+			<h2>오류가 발생했습니다.</h2>
 			<h2>{error.message}</h2>
 			<button
 				onClick={() =>
@@ -27,4 +26,6 @@ export default function Error({
 			</button>
 		</div>
 	);
-}
+};
+
+export default Error;

@@ -1,9 +1,8 @@
 "use server";
 
-import { version } from "@/app/layout";
 import { BASE_URL } from "@/constant/baseUrl";
 import { Champion } from "@/types/Champion";
-import { Item } from "@/types/Item";
+import { ItemInfo } from "@/types/Item";
 
 export const fetchVersions = async (): Promise<number> => {
 	const response = await fetch(`${BASE_URL}/api/versions.json`, {
@@ -15,6 +14,8 @@ export const fetchVersions = async (): Promise<number> => {
 };
 
 export const fetchChampionList = async (): Promise<Champion[]> => {
+	const version = await fetchVersions();
+
 	const response = await fetch(
 		`${BASE_URL}/cdn/${version}/data/ko_KR/champion.json`,
 		{
@@ -24,12 +25,15 @@ export const fetchChampionList = async (): Promise<Champion[]> => {
 			},
 		}
 	);
+	console.log("response", response.ok);
 	const { data } = await response.json();
 
 	return Object.values(data);
 };
 
 export const fetchChampionDetail = async (id: string): Promise<Champion> => {
+	const version = await fetchVersions();
+
 	const response = await fetch(
 		`${BASE_URL}/cdn/${version}/data/ko_KR/champion/${id}.json`,
 		{
@@ -42,10 +46,12 @@ export const fetchChampionDetail = async (id: string): Promise<Champion> => {
 };
 
 type beforeItems = {
-	data: Record<string, Item>;
+	data: Record<string, ItemInfo>;
 };
 
-export const fetchItemList = async (): Promise<Item[]> => {
+export const fetchItemList = async (): Promise<Array<[string, ItemInfo]>> => {
+	const version = await fetchVersions();
+
 	const response = await fetch(
 		`${BASE_URL}/cdn/${version}/data/ko_KR/item.json`,
 		{
@@ -54,7 +60,8 @@ export const fetchItemList = async (): Promise<Item[]> => {
 		}
 	);
 	const { data }: beforeItems = await response.json();
-	const items = Object.values(data).filter((i) => i.maps[21]);
+	console.log("data", data);
+	const items = Object.entries(data).filter((i) => i[1].maps[21]);
 
 	return items;
 };

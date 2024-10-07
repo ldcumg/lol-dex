@@ -2,11 +2,12 @@ import { Suspense } from "react";
 import "./globals.css";
 import Link from "next/link";
 import Loading from "../components/Loading";
-import "garlic-toast/style.css";
-// import { fetchVersions } from "@/utils/serverApi";
+import type { Metadata } from "next";
 
-export const version = "14.19.1";
-// await fetchVersions();
+export const metadata: Metadata = {
+	title: "왜 안되니",
+	description: "클라이언트 사이드 아니잖아",
+};
 
 export default function RootLayout({
 	children,
@@ -14,14 +15,14 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en">
+		<html lang="ko">
 			<body>
-				<nav className="text-[2vh] my-[2vh] md:text-[3vh] md:my-[4vh] flex place-content-evenly">
+				<header className="text-[2vh] my-[2vh] md:text-[3vh] md:my-[4vh] flex place-content-evenly">
 					<Link href="/">홈</Link>
 					<Link href="/champions">챔피언 목록</Link>
 					<Link href="/items">아이템 목록</Link>
 					<Link href="/rotation">챔피언 로테이션</Link>
-				</nav>
+				</header>
 				<Suspense fallback={<Loading />}>{children}</Suspense>
 			</body>
 		</html>

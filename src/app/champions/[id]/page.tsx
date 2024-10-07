@@ -1,12 +1,11 @@
-import { version } from "@/app/layout";
 import BackButton from "@/components/BackButton";
 import { BASE_URL } from "@/constant/baseUrl";
-import { fetchChampionDetail } from "@/utils/serverApi";
+import { fetchChampionDetail, fetchVersions } from "@/utils/serverApi";
 
 export function generateMetadata({ params }: Props) {
 	return {
-		title: params.id,
-		description: params.id,
+		title: `${params.id} 상세정보`,
+		description: `${params.id} 상세정보입니다.`,
 	};
 }
 
@@ -19,6 +18,7 @@ type Props = {
 const DetailPage = async ({ params }: Props) => {
 	const { id } = params;
 	const champion = await fetchChampionDetail(id);
+	const version = await fetchVersions();
 
 	return (
 		<div className="px-[20vw] flex flex-col gap-[2vh]">
@@ -31,8 +31,8 @@ const DetailPage = async ({ params }: Props) => {
 				width={300}
 				height={300}
 			/>
-			<p className="text-[--red]">{champion.lore}</p>
-			<span className="text-[--red]">
+			<p className="text-[--red] text-[1.5vh]">{champion.lore}</p>
+			<span className="text-[--red] text-[1.5vh]">
 				<h6>스탯</h6>
 				<ol>
 					<li>공격력 : {champion.info.attack}</li>

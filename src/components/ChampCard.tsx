@@ -1,4 +1,4 @@
-import { version } from "@/app/layout";
+// import { version } from "@/app/layout";
 import { BASE_URL } from "@/constant/baseUrl";
 import { Champion } from "@/types/Champion";
 import Image from "next/image";
@@ -13,7 +13,7 @@ const ChampCard = ({ champ }: Props) => {
 	return (
 		<Link href={`/champions/${champ.id}`} className="card">
 			<Image
-				src={`${BASE_URL}/cdn/${version}/img/champion/${champ.image.full}`}
+				src={`${BASE_URL}/cdn/14.19.1/img/champion/${champ.image.full}`}
 				alt={`${champ.name} 이미지`}
 				width={100}
 				height={100}
