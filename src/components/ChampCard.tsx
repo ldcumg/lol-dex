@@ -1,4 +1,3 @@
-// import { version } from "@/app/layout";
 import { BASE_URL } from "@/constant/baseUrl";
 import { Champion } from "@/types/Champion";
 import Image from "next/image";
@@ -17,7 +16,6 @@ const ChampCard = ({ champ }: Props) => {
 				alt={`${champ.name} 이미지`}
 				width={100}
 				height={100}
-				priority
 			/>
 			<h4 className="text-[--red]">{champ.name}</h4>
 			<p className="px-[2vw]">{champ.title}</p>

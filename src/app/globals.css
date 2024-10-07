@@ -6,7 +6,8 @@
   :root {
     --background: #ffffff;
     --foreground: #171717;
-    --red: #f55
+    --red: #f55;
+    --gold: rgb(251, 191, 36)
   }
 
   @font-face {
