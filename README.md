@@ -4,7 +4,7 @@
 
 # 🔗 배포 링크
 
-### [롤 도감](https://lol-7a6vfw6mk-wonbinlees-projects.vercel.app)
+### [롤 도감](https://lol-dex-wonbinlees-projects.vercel.app/)
 
 # 📚 프로젝트 구조
 
