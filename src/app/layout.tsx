@@ -10,9 +10,7 @@ export const metadata: Metadata = {
 	description: "무료 챔피언 목록입니다.",
 };
 
-type Props = Readonly<{
-	children: React.ReactNode;
-}>;
+type Props = Readonly<{ children: React.ReactNode }>;
 
 const RootLayout = ({ children }: Props) => {
 	return (
