@@ -9,13 +9,15 @@ type Props = {
 };
 
 const Error = ({ error, reset }: Props) => {
+	console.log("error", error);
 	const { refresh } = useRouter();
 
 	return (
-		<div>
+		<div className="flex flex-col items-center mt-[20vh] gap-[2vh]">
 			<h2>오류가 발생했습니다.</h2>
 			<h2>{error.message}</h2>
 			<button
+				className="text-[3vh]"
 				onClick={() =>
 					startTransition(() => {
 						refresh();

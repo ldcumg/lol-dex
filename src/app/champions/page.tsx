@@ -1,6 +1,6 @@
 import { fetchChampionList } from "@/utils/serverApi";
 import type { Metadata } from "next";
-import ChampCard from "@/components/ChampCard";
+import ChampCard from "@/components/detail/ChampCard";
 
 export const metadata: Metadata = {
 	title: "롤 챔피언 목록",

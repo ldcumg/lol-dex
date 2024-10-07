@@ -2,9 +2,7 @@
 
 import { Champion } from "@/types/Champion";
 import { useEffect, useState } from "react";
-import ChampCard from "@/components/ChampCard";
-// import "garlic-toast/style.css";
-// import { toast, ToastContainer } from "garlic-toast";
+import ChampCard from "@/components/detail/ChampCard";
 
 const RotationPage = () => {
 	const [rotation, setRotation] = useState<Champion[]>([]);
@@ -16,15 +14,13 @@ const RotationPage = () => {
 			})
 				.then((res) => res.json())
 				.then(setRotation);
-		} catch (error) {
-			console.error(error);
-			// toast.error("데이터를 불러오지 못 했습니다.");
+		} catch {
+			throw new Error("로테이션 정보를 불러오지 못 했습니다.");
 		}
 	}, []);
 
 	return (
 		<>
-			{/* <ToastContainer isFold position="t-l" time={5000} /> */}
 			<h2>챔피언 로테이션</h2>
 			<div className="custom-grid">
 				{rotation.map((champ) => (

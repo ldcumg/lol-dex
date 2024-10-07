@@ -1,5 +1,5 @@
 const Loading = () => {
-	return <div>Loading...</div>;
+	return <div><div className="m-auto text-[3vh]">Loading...</div></div>
 };
 
 export default Loading;
