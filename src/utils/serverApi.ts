@@ -4,6 +4,7 @@ import { BASE_URL } from "@/constant/baseUrl";
 import { Champion } from "@/types/Champion";
 import { ItemInfo } from "@/types/Item";
 
+/** 버전 정보를 요청하는 함수 */
 export const fetchVersions = async (): Promise<number> => {
 	const response = await fetch(`${BASE_URL}/api/versions.json`, {
 		method: "GET",
@@ -18,6 +19,7 @@ export const fetchVersions = async (): Promise<number> => {
 	return versions[0];
 };
 
+/** 전체 챔피언 목록을 요청하는 함수 */
 export const fetchChampionList = async (): Promise<Champion[]> => {
 	const version = await fetchVersions();
 
@@ -40,6 +42,7 @@ export const fetchChampionList = async (): Promise<Champion[]> => {
 	return Object.values(data);
 };
 
+/** 특정 챔피언의 정보를 요청하는 함수 */
 export const fetchChampionDetail = async (id: string): Promise<Champion> => {
 	const version = await fetchVersions();
 
@@ -63,6 +66,7 @@ type AllItems = {
 	data: Record<string, ItemInfo>;
 };
 
+/** 아이템들의 정보를 요청하는 함수 */
 export const fetchItemList = async (): Promise<Array<[string, ItemInfo]>> => {
 	const version = await fetchVersions();
 
