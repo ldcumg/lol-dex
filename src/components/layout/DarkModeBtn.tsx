@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 const DarkModeBtn = () => {
 	const [mounted, setMounted] = useState<boolean>(false);
 	const { theme, setTheme } = useTheme();
+
 	useEffect(() => {
 		setMounted(true);
 	}, []);
@@ -13,7 +14,7 @@ const DarkModeBtn = () => {
 	if (!mounted) {
 		return null;
 	}
-	
+
 	return (
 		<div>
 			<button

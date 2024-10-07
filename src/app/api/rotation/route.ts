@@ -11,7 +11,7 @@ export const GET = async () => {
 		{
 			method: "GET",
 			headers: {
-				"X-Riot-Token": API_KEY ?? "",
+				"X-Riot-Token": API_KEY as string,
 			},
 		}
 	);
@@ -19,7 +19,7 @@ export const GET = async () => {
 
 	// 전체 챔피언 목록에서 무료 챔피언 id에 해당하는 챔피언 목록 찾아내기
 	const championList = await fetchChampionList();
-	
+
 	const freeChampions = championList.filter((champ) =>
 		freeChampionIds.includes(Number(champ.key))
 	);
