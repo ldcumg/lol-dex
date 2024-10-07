@@ -9,7 +9,6 @@ type Props = {
 };
 
 const Error = ({ error, reset }: Props) => {
-	console.log("error", error);
 	const { refresh } = useRouter();
 
 	return (
