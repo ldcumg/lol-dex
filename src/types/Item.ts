@@ -22,7 +22,7 @@ export type ItemInfo = {
 	};
 	tags: string[];
 	maps: {
-		[mapId: number]: boolean;
+		number: boolean;
 	};
 	stats: {
 		FlatMovementSpeedMod: number;
