@@ -5,7 +5,7 @@ const API_KEY = process.env.NEXT_PUBLIC_RIOT_API_KEY;
 
 /** 주간 무료 챔피언 목록을 가져오는 함수 */
 export const GET = async () => {
-	// 무료 챔피언들의 id리스트 불러오기
+	// 무료 챔피언들의 id 배열 불러오기
 	const response = await fetch(
 		"https://kr.api.riotgames.com/lol/platform/v3/champion-rotations",
 		{
