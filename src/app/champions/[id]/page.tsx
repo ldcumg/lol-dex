@@ -24,7 +24,7 @@ const DetailPage = async ({ params }: Props) => {
 			<h1>{champion.name}</h1>
 			<h4>{champion.title}</h4>
 			<img
-				className="mx-auto w-[45vw] h-[40vh]"
+				className="mx-auto w-[45vw] h-[25vw]"
 				src={`${BASE_URL}/cdn/img/champion/splash/${champion.id}_0.jpg`}
 				alt={`${champion.name} 이미지`}
 			/>
