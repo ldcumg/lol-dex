@@ -10,9 +10,7 @@ export const fetchVersions = async (): Promise<number> => {
 		method: "GET",
 	});
 
-	if (!response.ok) {
-		throw new Error("버전 정보를 불러오지 못 했습니다.");
-	}
+	if (!response.ok) throw new Error("버전 정보를 불러오지 못 했습니다.");
 
 	const versions = await response.json();
 
@@ -33,9 +31,7 @@ export const fetchChampionList = async (): Promise<Champion[]> => {
 		}
 	);
 
-	if (!response.ok) {
-		throw new Error("챔피언 리스트를 불러오지 못 했습니다.");
-	}
+	if (!response.ok) throw new Error("챔피언 리스트를 불러오지 못 했습니다.");
 
 	const { data } = await response.json();
 
@@ -53,9 +49,7 @@ export const fetchChampionDetail = async (id: string): Promise<Champion> => {
 		}
 	);
 
-	if (!response.ok) {
-		throw new Error("챔피언 상세정보를 불러오지 못 했습니다.");
-	}
+	if (!response.ok) throw new Error("챔피언 상세정보를 불러오지 못 했습니다.");
 
 	const { data } = await response.json();
 
@@ -78,9 +72,8 @@ export const fetchItemList = async (): Promise<Array<[string, ItemInfo]>> => {
 		}
 	);
 
-	if (!response.ok) {
+	if (!response.ok)
 		throw new Error("로테이션 챔피언 정보를 불러오지 못 했습니다.");
-	}
 
 	const { data }: AllItems = await response.json();
 	const items = Object.entries(data).filter((i) => i[1].maps["21"]);
