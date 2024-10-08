@@ -8,15 +8,14 @@ const RotationPage = () => {
 	const [rotation, setRotation] = useState<Champion[]>([]);
 
 	useEffect(() => {
-		try {
-			fetch("api/rotation", {
-				method: "GET",
+		fetch("api/rotation", {
+			method: "GET",
+		})
+			.then((res) => {
+				if (!res.ok) throw new Error("로테이션 정보를 불러오지 못 했습니다.");
+				return res.json();
 			})
-				.then((res) => res.json())
-				.then(setRotation);
-		} catch {
-			throw new Error("로테이션 정보를 불러오지 못 했습니다.");
-		}
+			.then(setRotation);
 	}, []);
 
 	return (
