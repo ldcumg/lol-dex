@@ -8,12 +8,12 @@ type Props = {
 	};
 };
 
-export function generateMetadata({ params }: Props) {
+export const generateMetadata = ({ params }: Props) => {
 	return {
 		title: `${params.id} 상세정보`,
 		description: `${params.id} 상세정보입니다.`,
 	};
-}
+};
 
 const DetailPage = async ({ params }: Props) => {
 	const { id } = params;

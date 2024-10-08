@@ -6,17 +6,24 @@ import ChampCard from "@/components/detail/ChampCard";
 
 const RotationPage = () => {
 	const [rotation, setRotation] = useState<Champion[]>([]);
+	const [error, setError] = useState<boolean>(false);
 
 	useEffect(() => {
 		fetch("api/rotation", {
 			method: "GET",
 		})
 			.then((res) => {
-				if (!res.ok) throw new Error("로테이션 정보를 불러오지 못 했습니다.");
+				if (!res.ok) {
+					setError(true);
+					return;
+				}
+
 				return res.json();
 			})
 			.then(setRotation);
 	}, []);
+
+	if (error) throw new Error("로테이션 정보를 불러오지 못 했습니다.");
 
 	return (
 		<>
